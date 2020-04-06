@@ -1,11 +1,32 @@
 .header {
-  background: #333;
+  background: #d24726;
   color: #fff;
-  text-align: center;
   padding: 10px;
+  display: flex;
+  border-bottom: 2px solid #767171;
+  font-size: 28px;
 }
 
-.header a {
+.header-logo {
+  margin: auto 30px;
+  max-height: 108px;
+}
+
+.header-nav {
+  margin: auto 30px auto auto;
+}
+
+.header-nav a {
   color: #fff;
+  font-size: 28px;
   text-decoration: none;
+  margin: 0 10px
+}
+
+.header-nav a:hover {
+  text-decoration: underline !important;
+}
+
+.active {
+  text-decoration: underline !important;
 }

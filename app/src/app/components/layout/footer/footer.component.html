@@ -1,9 +1,13 @@
-<header class="header">
-  <div class="header-logo">
-    <img src="assets/img/logo.png" alt="Logo" height="108px" width="346px">
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="assets/img/logo.png" alt="Logo" height="62px" width="198px">
   </div>
 
-  <div class="header-nav">
+  <div class="footer-copyright">
+    <a href="/">Henry North</a> &copy; {{ copyrightYear }}
+  </div>
+
+  <div class="footer-nav">
     <nav>
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       |
@@ -14,4 +18,4 @@
       <a routerLink="/contact-us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Contact Us</a>
     </nav>
   </div>
-</header>
+</footer>
