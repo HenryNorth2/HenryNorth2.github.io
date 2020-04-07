@@ -1,15 +1,16 @@
 .header {
   background: #d24726;
-  color: #fff;
+  color: #767171;
   padding: 10px;
   display: flex;
   border-bottom: 2px solid #767171;
-  font-size: 28px;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .header-logo {
   margin: auto 30px;
-  max-height: 108px;
+  max-height: 77px;
 }
 
 .header-nav {
@@ -18,7 +19,7 @@
 
 .header-nav a {
   color: #fff;
-  font-size: 28px;
+  font-size: 20px;
   text-decoration: none;
   margin: 0 10px
 }

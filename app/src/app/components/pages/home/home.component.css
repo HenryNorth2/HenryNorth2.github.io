@@ -1,0 +1,34 @@
+.parallax-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.parallax-wrapper .parallax-overlay {
+  position: absolute;
+  z-index: 999;
+  margin: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 33, 0.80);
+  padding: 5px 10px;
+}
+
+.parallax {
+  background-image: url("../../../../assets/img/home-welcome-background.jpg");
+  min-height: 500px;
+  display: flex;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-text {
+  z-index: 9999;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+}

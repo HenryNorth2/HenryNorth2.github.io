@@ -9,19 +9,56 @@ body {
   line-height: 1.4;
 }
 
-.container {
-  padding: 0 1rem;
+.flex-container {
+  display: flex;
 }
 
-.btn {
-  display: inline-block;
+.shell-full-width {
+  width: 100%;
+  margin: 30px 0;
+}
+
+.shell, .shell-wide {
+  min-width: 300px;
+  max-width: 480px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 30px auto
+}
+
+@media (min-width: 1300px) {
+  .shell-wide {
+    max-width: 1300px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .shell, .shell-wide {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .shell, .shell-wide {
+    max-width: 970px;
+  }
+}
+
+@media (min-width: 768px) {
+  .shell, .shell-wide {
+    max-width: 750px;
+  }
+}
+
+.divider {
+  width: 120px;
+  height: 3px;
+  margin: 20px auto 20px 20px;
   border: none;
-  background: #555;
-  color: #fff;
-  padding: 7px 20px;
-  cursor: pointer;
+  background: #d24726;
 }
 
-.btn:hover {
-  background: #666;
+.centralise {
+  margin-left: auto;
+  margin-right: auto;
 }

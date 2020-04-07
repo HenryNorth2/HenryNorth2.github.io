@@ -10,12 +10,13 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
-import { PropertiesComponent } from './components/properties/properties.component';
-import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { PropertiesComponent } from './components/pages/properties/properties.component';
+import { AboutComponent } from './components/pages/about/about.component';
+import { ContactComponent } from './components/pages/contact/contact.component';
+import { HomeComponent } from './components/pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: TodosComponent },
+  { path: '', component: HomeComponent },
   { path: 'properties', component: PropertiesComponent },
   { path: 'about-us', component: AboutComponent },
   { path: 'contact-us', component: ContactComponent }
@@ -31,7 +32,8 @@ const routes: Routes = [
     AboutComponent,
     FooterComponent,
     ContactComponent,
-    PropertiesComponent
+    PropertiesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
