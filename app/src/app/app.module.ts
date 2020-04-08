@@ -10,10 +10,11 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
-import { PropertiesComponent } from './components/pages/properties/properties.component';
-import { AboutComponent } from './components/pages/about/about.component';
-import { ContactComponent } from './components/pages/contact/contact.component';
-import { HomeComponent } from './components/pages/home/home.component';
+import { PropertiesComponent } from './components/properties/properties.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
+import { CarouselItemComponent } from './components/home/carousel-item/carousel-item.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
     FooterComponent,
     ContactComponent,
     PropertiesComponent,
-    HomeComponent
+    HomeComponent,
+    CarouselItemComponent
   ],
   imports: [
     BrowserModule,

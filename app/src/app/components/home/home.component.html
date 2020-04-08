@@ -1,19 +1,33 @@
 <div>
   <div class="shell-wide">
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">
+            <app-carousel-item title="Properties" routeTo="/properties" imgSrc="assets/img/properties.jpg"></app-carousel-item>
+          </li>
+
+          <li class="glide__slide">
+            <app-carousel-item title="About Us" routeTo="/about-us" imgSrc="assets/img/about-us.jpg"></app-carousel-item>
+          </li>
+
+          <li class="glide__slide">
+            <app-carousel-item title="Contact Us" routeTo="/contact-us" imgSrc="assets/img/contact-us.png"></app-carousel-item>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left dark" data-glide-dir="<"><</button>
+        <button class="glide__arrow glide__arrow--right dark" data-glide-dir=">">></button>
+      </div>
+    </div>
   </div>
 
   <div class="shell-full-width">
     <div class="parallax-wrapper">
+      <div class="parallax-overlay"></div>
+
       <div class="parallax">
         <div class="shell-wide parallax-text">
           <h1>Welcome</h1>
@@ -48,8 +62,6 @@
           </p>
         </div>
       </div>
-
-      <div class="parallax-overlay"></div>
     </div>
   </div>
 

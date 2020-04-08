@@ -17,7 +17,7 @@
 }
 
 .parallax {
-  background-image: url("../../../../assets/img/home-welcome-background.jpg");
+  background-image: url("../../../assets/img/home-welcome-background.jpg");
   min-height: 500px;
   display: flex;
   background-attachment: fixed;
@@ -31,4 +31,19 @@
   color: #fff;
   text-align: center;
   font-size: 18px;
+}
+
+.dark {
+  color: black;
+  text-transform: none;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid rgba(25,25,25,0.5);
+  transition: opacity 150ms ease, border 200ms ease-in-out, background-color 200ms ease-in-out;
+}
+
+.dark:hover {
+  border: 2px solid rgba(25,25,25,0.8);
+  background-color: rgba(25,25,25,0.2);
 }
