@@ -1,11 +1,33 @@
 .header {
-  background: #333;
-  color: #fff;
-  text-align: center;
+  background: #d24726;
+  color: #767171;
   padding: 10px;
+  display: flex;
+  border-bottom: 2px solid #767171;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.header a {
+.header-logo {
+  margin: auto 30px;
+  max-height: 77px;
+}
+
+.header-nav {
+  margin: auto 30px auto auto;
+}
+
+.header-nav a {
   color: #fff;
+  font-size: 20px;
   text-decoration: none;
+  margin: 0 10px
+}
+
+.header-nav a:hover {
+  text-decoration: underline !important;
+}
+
+.active {
+  text-decoration: underline !important;
 }

@@ -1,0 +1,40 @@
+.footer {
+  background: #d24726;
+  color: #767171;
+  padding: 20px;
+  display: flex;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.footer-copyright {
+  margin: auto auto auto 30px;
+  color: #fff;
+}
+
+.footer-copyright a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-copyright a:hover {
+  text-decoration: underline;
+}
+
+.footer-nav {
+  margin: auto 30px auto auto;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 6px
+}
+
+.footer-nav a:hover {
+  text-decoration: underline !important;
+}
+
+.active {
+  text-decoration: underline !important;
+}
