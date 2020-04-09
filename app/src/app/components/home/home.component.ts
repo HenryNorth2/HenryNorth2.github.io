@@ -10,7 +10,7 @@ import Glide from '@glidejs/glide';
 export class HomeComponent implements OnInit {
   config = {
     type: 'carousel',
-    autoplay: 5000,
+    //autoplay: 5000,
   }
 
   constructor() { }

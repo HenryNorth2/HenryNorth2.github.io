@@ -30,5 +30,5 @@ export class TodosComponent implements OnInit {
       this.todos.push(todo);
     });
   }
-  
+
 }

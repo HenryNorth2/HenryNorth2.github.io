@@ -1,1 +1,10 @@
-<p>properties works!</p>
+<div class="shell-wide">
+  <h1 class="title">Properties For Sale</h1>
+  <div class="divider centralise"></div>
+
+  <div class="filters-box">FILTERS</div>
+
+  <div class="properties-container">
+    <app-property-item class="property-card" *ngFor="let property of properties" [property]="property"></app-property-item>
+  </div>
+</div>
