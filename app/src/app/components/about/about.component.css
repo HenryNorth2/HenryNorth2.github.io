@@ -43,7 +43,7 @@
   padding: 10px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1299px) {
   .wrapper-1 {
     flex-direction: column-reverse;
   }
