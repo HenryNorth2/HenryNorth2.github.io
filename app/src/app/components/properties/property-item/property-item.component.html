@@ -1,5 +1,7 @@
-<mat-card>
-  <img mat-card-image>
-  Simple Card
-  {{ property.propertyId }}
-</mat-card>
+<a [routerLink]="['/properties', property.propertyId]">
+  <mat-card>
+    <img mat-card-image>
+    Simple Card
+    {{ property.propertyId }}
+  </mat-card>
+</a>

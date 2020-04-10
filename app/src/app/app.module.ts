@@ -24,12 +24,16 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { CarouselItemComponent } from './components/home/carousel-item/carousel-item.component';
 import { PropertyItemComponent } from './components/properties/property-item/property-item.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PropertiesDetailsComponent } from './components/properties-details/properties-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'properties', component: PropertiesComponent },
+  { path: 'properties/:propertyId', component: PropertiesDetailsComponent },
   { path: 'about-us', component: AboutComponent },
-  { path: 'contact-us', component: ContactComponent }
+  { path: 'contact-us', component: ContactComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -45,7 +49,9 @@ const routes: Routes = [
     PropertiesComponent,
     HomeComponent,
     CarouselItemComponent,
-    PropertyItemComponent
+    PropertyItemComponent,
+    PageNotFoundComponent,
+    PropertiesDetailsComponent
   ],
   imports: [
     BrowserModule,
