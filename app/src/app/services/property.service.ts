@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Property } from '../models/Property';
+//import { Observable } from 'rxjs';
+//import { Property } from '../models/Property';
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': '3B990EFF-921D-49B0-86BA-C497F82AF05F',
+    'Accept': ' text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization, Accept-Language, X-Requested-With',
@@ -23,10 +24,10 @@ export class PropertyService {
   constructor(private http:HttpClient) { }
 
   // Get Properties List
-  getProperties():Observable<Property[]> {
+  getProperties()/*:Observable<Property[]>*/ {
     const url = `${this.mainUrl}/api/v1/website/team-listings`;
 
-    return this.http.get<Property[]>(url, httpOptions);
+    return this.http.get/*<Property[]>*/(url, httpOptions);
   }
 
   // Delete Todo
