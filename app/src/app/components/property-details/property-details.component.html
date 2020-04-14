@@ -1,0 +1,12 @@
+<div>
+  <h2>Property Details</h2>
+
+  <div *ngIf="property">
+    <h2>{{ property.name }}</h2>
+    <h2>{{ property.listingId }}</h2>
+    <h2>{{ property.propertyId }}</h2>
+  </div>
+
+  <button mat-raised-button (click)="openViewingDialog()">Book a Viewing</button>
+  <button mat-raised-button (click)="openEnquiryDialog()">Make an Enquiry</button>
+</div>

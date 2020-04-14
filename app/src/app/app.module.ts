@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
@@ -25,12 +27,14 @@ import { HomeComponent } from './components/home/home.component';
 import { CarouselItemComponent } from './components/home/carousel-item/carousel-item.component';
 import { PropertyItemComponent } from './components/properties/property-item/property-item.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { PropertiesDetailsComponent } from './components/properties-details/properties-details.component';
+import { PropertyDetailsComponent } from './components/property-details/property-details.component';
+import { BookViewingModalComponent } from './components/property-details/book-viewing-modal/book-viewing-modal.component';
+import { MakeEnquiryModalComponent } from './components/property-details/make-enquiry-modal/make-enquiry-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'properties', component: PropertiesComponent },
-  { path: 'properties/:propertyId', component: PropertiesDetailsComponent },
+  { path: 'properties/:propertyId', component: PropertyDetailsComponent },
   { path: 'about-us', component: AboutComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: '**', component: PageNotFoundComponent }
@@ -51,7 +55,9 @@ const routes: Routes = [
     CarouselItemComponent,
     PropertyItemComponent,
     PageNotFoundComponent,
-    PropertiesDetailsComponent
+    PropertyDetailsComponent,
+    BookViewingModalComponent,
+    MakeEnquiryModalComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +71,17 @@ const routes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatDialogModule
   ],
-  providers: [],
+  entryComponents: [
+    BookViewingModalComponent,
+    MakeEnquiryModalComponent
+  ],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
