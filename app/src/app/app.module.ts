@@ -27,6 +27,9 @@ import { PropertyItemComponent } from './components/properties/property-item/pro
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PropertiesDetailsComponent } from './components/properties-details/properties-details.component';
 
+import { PropertyService } from './services/property.service';
+import { httpInterceptProviders } from './services/http-interceptors';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'properties', component: PropertiesComponent },
@@ -67,7 +70,7 @@ const routes: Routes = [
     MatListModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [PropertyService, httpInterceptProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
