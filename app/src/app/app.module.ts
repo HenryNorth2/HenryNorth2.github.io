@@ -13,6 +13,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
@@ -73,7 +75,10 @@ const routes: Routes = [
     MatListModule,
     MatCardModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true })
   ],
   entryComponents: [
     BookViewingModalComponent,
