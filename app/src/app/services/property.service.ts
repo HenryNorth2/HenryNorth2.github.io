@@ -13,16 +13,16 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PropertyService {
-  mainUrl:string = 'https://live-loop-publicapi.azurewebsites.net/api/v1/website/team-listings';
+  mainUrl:string = 'https://live-loop-publicapi.azurewebsites.net';
 
   constructor(private http:HttpClient) { }
 
   // Get Properties List
   getProperties():Observable<Property[]> {
-    //const url = `${this.mainUrl}/api/v1/website/team-listings`;
-    //const url  = '/assets/temp-data/properties.json'; // TEMP
+    //const url = this.mainUrl + '/api/v1/website/team-listings';
+    const url  = '/assets/temp-data/properties.json'; // TEMP
 
-    return this.http.get<Property[]>(this.mainUrl, httpOptions);
+    return this.http.get<Property[]>(url, httpOptions);
   }
 
   // Delete Todo
