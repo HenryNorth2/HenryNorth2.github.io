@@ -36,6 +36,12 @@ body {
   }
 }
 
+@media (max-width: 1299px) {
+  .shell-md-full {
+    max-width: 100% !important;
+  }
+}
+
 @media (min-width: 1200px) {
   .shell, .shell-wide {
     max-width: 1200px;

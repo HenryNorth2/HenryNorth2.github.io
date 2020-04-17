@@ -1,0 +1,64 @@
+<div *ngIf="property" class="shell-wide shell-md-full">
+  <div class="titles-container">
+    <h1>{{ bedroomsString }}, {{ propertyType }}</h1>
+    <h3>{{ address }}</h3>
+    <h2>{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</h2>
+  </div>
+
+  <div class="carousel-container">
+    <div>carousel</div>
+  </div>
+
+  <div class="summary-map-wrapper">
+    <div class="summary-container">
+      <mat-card>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              Status: <div class="item-value">{{ statusString }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item>
+              Type: <div class="item-value">{{ propertyType }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item>
+              Bedrooms: <div class="item-value">{{ property.details.bedrooms }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item>
+              Bathrooms: <div class="item-value">{{ property.details.bathrooms }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item>
+              Receptions: <div class="item-value">{{ property.details.receptionRooms }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item>
+              Address: <div class="item-value">{{ address }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item>
+              Price: <div class="item-value">{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="map-container">
+      <mat-card class="map-card">
+        <app-google-maps latitude="{{ property.details.latitude }}" longitude="{{ property.details.longitude }}"></app-google-maps>
+      </mat-card>
+    </div>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="openViewingDialog()">Book a Viewing</button>
+  <button mat-raised-button color="primary" (click)="openEnquiryDialog()">Make an Enquiry</button>
+</div>

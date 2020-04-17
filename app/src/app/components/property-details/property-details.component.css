@@ -1,0 +1,57 @@
+.titles-container {
+  text-align: center;
+}
+
+.summary-map-wrapper {
+  display: flex;
+}
+
+.summary-container {
+  width: 50%;
+  margin: 10px 10px 10px 0;
+}
+
+.summary-container mat-divider {
+  position: relative;
+}
+
+.summary-container mat-list {
+  padding-top: 0;
+}
+
+.summary-container mat-card {
+  padding: 8px 16px;
+}
+
+.summary-container mat-list-item {
+  height: 42px;
+}
+
+.item-value {
+  margin-left: auto;
+  text-align: end;
+}
+
+.map-container {
+  width: 50%;
+  margin: 10px 0 10px 10px;
+}
+
+@media (max-width: 1100px) {
+  .summary-map-wrapper {
+    display: block;
+  }
+
+  .summary-container, .map-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.map-card {
+  height: 100%;
+}
+
+button {
+  margin: 6px;
+}

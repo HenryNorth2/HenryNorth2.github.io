@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PropertiesDetailsComponent } from './properties-details.component';
+import { MakeEnquiryModalComponent } from './make-enquiry-modal.component';
 
-describe('PropertiesDetailsComponent', () => {
-  let component: PropertiesDetailsComponent;
-  let fixture: ComponentFixture<PropertiesDetailsComponent>;
+describe('MakeEnquiryModalComponent', () => {
+  let component: MakeEnquiryModalComponent;
+  let fixture: ComponentFixture<MakeEnquiryModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropertiesDetailsComponent ]
+      declarations: [ MakeEnquiryModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PropertiesDetailsComponent);
+    fixture = TestBed.createComponent(MakeEnquiryModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

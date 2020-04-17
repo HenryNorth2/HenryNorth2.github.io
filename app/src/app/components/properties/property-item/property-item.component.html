@@ -1,7 +1,16 @@
-<a [routerLink]="['/properties', property.propertyId]">
-  <mat-card>
-    <img mat-card-image>
-    Simple Card
-    {{ property.propertyId }}
-  </mat-card>
-</a>
+<mat-card>
+  <img mat-card-image src="{{thumbnailSrc}}" alt="Property image" [routerLink]="['/properties', property.propertyId]">
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item class="address-item">{{ address }}</mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item class="price-item">{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item class="extra-detail-item">
+        <button mat-raised-button [routerLink]="['/properties', property.propertyId]">Book a Viewing</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
