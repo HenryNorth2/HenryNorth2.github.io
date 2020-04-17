@@ -13,8 +13,12 @@ import { MakeEnquiryModalComponent } from './make-enquiry-modal/make-enquiry-mod
   styleUrls: ['./property-details.component.css']
 })
 export class PropertyDetailsComponent implements OnInit {
-  property:any;
-  properties:Property[];
+  properties: Property[];
+  property: Property;
+  bedroomsString: string;
+  propertyType: string;
+  address: string;
+  statusString: string;
 
   constructor(
     private route:ActivatedRoute,
@@ -30,7 +34,48 @@ export class PropertyDetailsComponent implements OnInit {
         let propertyId = +params.get('propertyId');
         this.property = this.properties.find(property => property.propertyId === propertyId);
       });
+
+      this.bedroomsString = this.getBedroomsString(this.property.details.bedrooms);
+      this.propertyType = this.getPropertyType(this.property.details.propertyType);
+      this.address = this.property.details.displayAddress.replace(/,/g, ", ");
+      this.statusString = this.getStatusString(this.property.details.status);
     });
+  }
+
+  getBedroomsString = (numberOfBedrooms:number) => {
+    if (numberOfBedrooms === 1) {
+      return numberOfBedrooms + ' Bedroom';
+    } else {
+      return numberOfBedrooms + ' Bedrooms';
+    }
+  }
+
+  getPropertyType = (propertyType) => {
+    if (propertyType === 1) {
+      return 'Flat';
+    } if (propertyType === 2) {
+      return 'Detached House';
+    } if (propertyType === 3) {
+      return 'Semi-detached House';
+    } if (propertyType === 4) {
+      return 'Terraced House';
+    } if (propertyType === 5) {
+      return 'Cottage';
+    } if (propertyType === 6) {
+      return 'Bungalow';
+    } else {
+      return 'Property';
+    }
+  }
+
+  getStatusString = (statusNumber) => {
+    if (statusNumber === 1) {
+      return 'For Sale';
+    } if (statusNumber === 2) {
+      return 'Under Offer';
+    } else {
+      return 'Unknown';
+    }
   }
 
   openViewingDialog(): void {

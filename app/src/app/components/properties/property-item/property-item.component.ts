@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Property } from '../../../models/Property';
 
+
 @Component({
   selector: 'app-property-item',
   templateUrl: './property-item.component.html',

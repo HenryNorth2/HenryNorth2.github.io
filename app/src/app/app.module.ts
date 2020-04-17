@@ -32,6 +32,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { BookViewingModalComponent } from './components/property-details/book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './components/property-details/make-enquiry-modal/make-enquiry-modal.component';
+import { GoogleMapsComponent } from './components/property-details/google-maps/google-maps.component';
 
 import { PropertyService } from './services/property.service';
 
@@ -61,7 +62,8 @@ const routes: Routes = [
     PageNotFoundComponent,
     PropertyDetailsComponent,
     BookViewingModalComponent,
-    MakeEnquiryModalComponent
+    MakeEnquiryModalComponent,
+    GoogleMapsComponent
   ],
   imports: [
     BrowserModule,
