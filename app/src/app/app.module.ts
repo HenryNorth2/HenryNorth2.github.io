@@ -33,6 +33,8 @@ import { PropertyDetailsComponent } from './components/property-details/property
 import { BookViewingModalComponent } from './components/property-details/book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './components/property-details/make-enquiry-modal/make-enquiry-modal.component';
 
+import { PropertyService } from './services/property.service';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'properties', component: PropertiesComponent },
@@ -85,6 +87,7 @@ const routes: Routes = [
     MakeEnquiryModalComponent
   ],
   providers: [
+    PropertyService,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
   ],
   bootstrap: [AppComponent]

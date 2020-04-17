@@ -5,8 +5,7 @@ import { Property } from '../models/Property';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': '3B990EFF-921D-49B0-86BA-C497F82AF05F',
+    "x-api-key": "3B990EFF-921D-49B0-86BA-C497F82AF05F"
   })
 };
 
@@ -14,16 +13,16 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PropertyService {
-  private mainUrl:string = 'https://live-loop-publicapi.azurewebsites.net';
+  mainUrl:string = 'https://live-loop-publicapi.azurewebsites.net/api/v1/website/team-listings';
 
   constructor(private http:HttpClient) { }
 
   // Get Properties List
   getProperties():Observable<Property[]> {
     //const url = `${this.mainUrl}/api/v1/website/team-listings`;
-    const url  = '/assets/temp-data/properties.json'; // TEMP
+    //const url  = '/assets/temp-data/properties.json'; // TEMP
 
-    return this.http.get<Property[]>(url, httpOptions);
+    return this.http.get<Property[]>(this.mainUrl, httpOptions);
   }
 
   // Delete Todo
