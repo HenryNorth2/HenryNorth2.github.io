@@ -2,8 +2,8 @@ export class Property {
   propertyId: number;
   listingId: string;
   details: {
-    propertyType: string;
-    status: string;
+    propertyType: any;
+    status: any;
     dateUpdated: string;
     shortDescription: string;
     fullDescription: string;

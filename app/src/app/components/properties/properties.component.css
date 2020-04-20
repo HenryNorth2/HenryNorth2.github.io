@@ -3,14 +3,6 @@
   font-size: 46px;
 }
 
-.filters-box {
-  width: 100%;
-  background-color: rgba(118,113,113,0.8);
-  color: #fff;
-  padding: 12px;
-  margin: 10px 0;
-}
-
 .properties-container {
   width: 100%;
   display: flex;
