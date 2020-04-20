@@ -19,26 +19,9 @@ export class PropertyService {
 
   // Get Properties List
   getProperties():Observable<Property[]> {
-    //const url = this.mainUrl + '/api/v1/website/team-listings';
-    const url  = '/assets/temp-data/properties.json'; // TEMP
+    const url = this.mainUrl + '/api/v1/website/team-listings';
+    //const url  = '/assets/temp-data/properties.json'; // TEMP
 
     return this.http.get<Property[]>(url, httpOptions);
   }
-
-  // Delete Todo
-  // deleteTodo(todo:Todo):Observable<Todo> {
-  //   const url = `${this.todosUrl}/${todo.id}`;
-  //   return this.http.delete<Todo>(url, httpOptions);
-  // }
-
-  // Add Todo
-  // addTodo(todo:Todo):Observable<Todo> {
-  //   return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
-  // }
-
-  // Toggle Completed
-  // toggleCompleted(todo:Todo):Observable<any> {
-  //   const url = `${this.todosUrl}/${todo.id}`;
-  //   return this.http.put(url, todo, httpOptions);
-  // }
 }
