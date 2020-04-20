@@ -1,0 +1,17 @@
+.filters-box {
+  width: fit-content;
+  background: rgb(228, 228, 228);
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin: 20px auto;
+}
+
+.filter-item {
+  margin: 0 8px;
+}
+
+button {
+  background-color: #d24726;
+  color: #fff;
+}

@@ -5,6 +5,7 @@ import { PropertyService } from '../../services/property.service';
 import { Property } from '../../models/Property';
 import { BookViewingModalComponent } from './book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './make-enquiry-modal/make-enquiry-modal.component';
+import { PROPERTY_TYPES } from 'src/app/entities/propertyTypes';
 
 
 @Component({
@@ -36,13 +37,13 @@ export class PropertyDetailsComponent implements OnInit {
       });
 
       this.bedroomsString = this.getBedroomsString(this.property.details.bedrooms);
-      this.propertyType = this.getPropertyType(this.property.details.propertyType);
+      this.propertyType = this.getPropertyTypeString(this.property.details.propertyType);
       this.address = this.property.details.displayAddress.replace(/,/g, ", ");
       this.statusString = this.getStatusString(this.property.details.status);
     });
   }
 
-  getBedroomsString = (numberOfBedrooms:number) => {
+  getBedroomsString = (numberOfBedrooms: number) => {
     if (numberOfBedrooms === 1) {
       return numberOfBedrooms + ' Bedroom';
     } else {
@@ -50,25 +51,18 @@ export class PropertyDetailsComponent implements OnInit {
     }
   }
 
-  getPropertyType = (propertyType) => {
-    if (propertyType === 1) {
-      return 'Flat';
-    } if (propertyType === 2) {
-      return 'Detached House';
-    } if (propertyType === 3) {
-      return 'Semi-detached House';
-    } if (propertyType === 4) {
-      return 'Terraced House';
-    } if (propertyType === 5) {
-      return 'Cottage';
-    } if (propertyType === 6) {
-      return 'Bungalow';
+  getPropertyTypeString = (propertyType: number) => {
+    const propertyTypeObject = PROPERTY_TYPES.find(element => element.value === propertyType);
+    console.log(propertyType);
+
+    if (propertyTypeObject) {
+      return propertyTypeObject.name;
     } else {
-      return 'Property';
+      return 'Property'
     }
   }
 
-  getStatusString = (statusNumber) => {
+  getStatusString = (statusNumber: number) => {
     if (statusNumber === 1) {
       return 'For Sale';
     } if (statusNumber === 2) {
