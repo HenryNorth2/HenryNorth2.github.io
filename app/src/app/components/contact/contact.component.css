@@ -1,0 +1,19 @@
+.form-container {
+  flex-basis: 66.66%;
+  flex-basis: 66.66%;
+  padding: 0 12px;
+}
+
+.info-container {
+  flex-basis: 33.33%;
+  max-width: 33.33%;
+  padding: 0 12px;
+}
+
+.info-item {
+  margin: 10px 0;
+}
+
+.info-divider {
+  margin: 10px auto 10px 0px;
+}
