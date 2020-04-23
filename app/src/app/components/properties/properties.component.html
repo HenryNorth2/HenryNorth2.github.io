@@ -4,7 +4,14 @@
 
   <app-filters></app-filters>
 
-  <div class="properties-container">
-    <app-property-item class="property-card" *ngFor="let property of properties" [property]="property"></app-property-item>
+  <div class="properties-container" *ngIf="properties">
+    <app-property-item
+      class="property-card"
+      *ngFor="let property of properties | paginate: { itemsPerPage: propertiesPerPage, currentPage: page }"
+      [property]="property"
+    >
+    </app-property-item>
   </div>
+
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>

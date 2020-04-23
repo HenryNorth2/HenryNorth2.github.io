@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
@@ -34,9 +35,10 @@ import { PropertyDetailsComponent } from './components/property-details/property
 import { BookViewingModalComponent } from './components/property-details/book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './components/property-details/make-enquiry-modal/make-enquiry-modal.component';
 import { GoogleMapsComponent } from './components/property-details/google-maps/google-maps.component';
+import { FiltersComponent } from './components/properties/filters/filters.component';
+import { NewOnMarketComponent } from './components/home/new-on-market/new-on-market.component';
 
 import { PropertyService } from './services/property.service';
-import { FiltersComponent } from './components/properties/filters/filters.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -66,7 +68,8 @@ const routes: Routes = [
     BookViewingModalComponent,
     MakeEnquiryModalComponent,
     GoogleMapsComponent,
-    FiltersComponent
+    FiltersComponent,
+    NewOnMarketComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ const routes: Routes = [
     MatSelectModule,
     MatDialogModule,
     MatDividerModule,
+    NgxPaginationModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true })
   ],

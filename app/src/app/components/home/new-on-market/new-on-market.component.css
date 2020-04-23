@@ -1,0 +1,30 @@
+.new-on-market-title {
+  text-align: center;
+  font-size: 46px;
+}
+
+.properties-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.property-card {
+  flex-basis: 32.5%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1299px) {
+  .property-card {
+    flex-basis: 49%;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-card {
+    flex-basis: 100%;
+  }
+}

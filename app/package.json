@@ -24,6 +24,7 @@
     "@angular/router": "~9.1.0",
     "@glidejs/glide": "^3.4.1",
     "@types/googlemaps": "^3.39.3",
+    "ngx-pagination": "^5.0.0",
     "ngx-ui-loader": "^9.1.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

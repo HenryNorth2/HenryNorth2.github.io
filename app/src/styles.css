@@ -9,8 +9,8 @@ html, body {
 }
 
 body {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
-  line-height: 1.4;
+  font-family: Roboto, "Lato", Helvetica, Arial, sans-serif;
+  line-height: 1.2;
 }
 
 .flex-container {

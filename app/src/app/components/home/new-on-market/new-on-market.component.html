@@ -1,0 +1,13 @@
+<div class="shell-wide">
+  <h1 class="new-on-market-title">New on the Market</h1>
+  <div class="divider centralise"></div>
+
+  <div class="properties-container" *ngIf="newProperties">
+    <app-property-item
+      class="property-card"
+      *ngFor="let property of newProperties"
+      [property]="property"
+    >
+    </app-property-item>
+  </div>
+</div>

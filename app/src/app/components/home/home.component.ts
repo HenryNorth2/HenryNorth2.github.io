@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import Glide from '@glidejs/glide';
 
+const carouselConfig = {
+  type: 'carousel',
+  autoplay: 5000
+}
 
 @Component({
   selector: 'app-home',
@@ -8,15 +12,11 @@ import Glide from '@glidejs/glide';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  config = {
-    type: 'carousel',
-    //autoplay: 5000,
-  }
 
   constructor() { }
 
   ngOnInit(): void {
-    new Glide('.glide', this.config).mount();
+    new Glide('.glide', carouselConfig).mount();
   }
 
 }
