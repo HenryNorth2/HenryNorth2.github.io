@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -13,9 +13,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
@@ -34,9 +36,10 @@ import { PropertyDetailsComponent } from './components/property-details/property
 import { BookViewingModalComponent } from './components/property-details/book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './components/property-details/make-enquiry-modal/make-enquiry-modal.component';
 import { GoogleMapsComponent } from './components/property-details/google-maps/google-maps.component';
+import { FiltersComponent } from './components/properties/filters/filters.component';
+import { NewOnMarketComponent } from './components/home/new-on-market/new-on-market.component';
 
 import { PropertyService } from './services/property.service';
-import { FiltersComponent } from './components/properties/filters/filters.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -66,12 +69,14 @@ const routes: Routes = [
     BookViewingModalComponent,
     MakeEnquiryModalComponent,
     GoogleMapsComponent,
-    FiltersComponent
+    FiltersComponent,
+    NewOnMarketComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatSidenavModule,
@@ -83,8 +88,10 @@ const routes: Routes = [
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatInputModule,
     MatDialogModule,
     MatDividerModule,
+    NgxPaginationModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true })
   ],
