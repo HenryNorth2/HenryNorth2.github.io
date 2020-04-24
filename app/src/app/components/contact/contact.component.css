@@ -1,19 +1,69 @@
+.page-wrapper {
+  display: flex;
+}
+
 .form-container {
-  flex-basis: 66.66%;
-  flex-basis: 66.66%;
+  flex-basis: 80%;
+  max-width: 80%;
   padding: 0 12px;
 }
 
+.form-field {
+  padding: 6px 10px;
+  font-size: 18px;
+}
+
+.name-field {
+  width: 50%
+}
+
+.email-field {
+  width: 50%
+}
+
+.enquiry-field {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .name-field, .email-field {
+    width: 100%;
+  }
+}
+
 .info-container {
-  flex-basis: 33.33%;
-  max-width: 33.33%;
+  flex-basis: 20%;
+  max-width: 20%;
   padding: 0 12px;
 }
 
 .info-item {
-  margin: 10px 0;
+  margin: 10px 0 30px;
+}
+
+.info-item h2 {
+  margin-left: 6px;
 }
 
 .info-divider {
   margin: 10px auto 10px 0px;
+  width: 144px;
+}
+
+@media (max-width: 991px) {
+  .page-wrapper {
+    display: block;
+  }
+
+  .form-container, .info-container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+button {
+  background-color: #d24726;
+  color: #fff;
+  margin: 6px 10px;
+  font-size: 18px;
 }

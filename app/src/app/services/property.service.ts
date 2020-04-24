@@ -5,6 +5,8 @@ import { Property } from '../models/Property';
 
 const httpOptions = {
   headers: new HttpHeaders({
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
     "x-api-key": "3B990EFF-921D-49B0-86BA-C497F82AF05F"
   })
 };
@@ -19,8 +21,8 @@ export class PropertyService {
 
   // Get Properties List
   getProperties():Observable<Property[]> {
-    const url = this.mainUrl + '/api/v1/website/team-listings';
-    //const url  = '/assets/temp-data/properties.json'; // TEMP
+    //const url = this.mainUrl + '/api/v1/website/team-listings';
+    const url  = '/assets/temp-data/properties.json'; // TEMP
 
     return this.http.get<Property[]>(url, httpOptions);
   }
