@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { PropertyService } from '../../services/property.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,16 +8,26 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  name = new FormControl('', Validators.required);
+  name = new FormControl('', [ Validators.required ]);
   email = new FormControl('', [ Validators.required, Validators.email ]);
-  message = new FormControl('', Validators.required);
+  message = new FormControl('', [ Validators.required ]);
 
-  constructor() { }
+  constructor(private propertyService: PropertyService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log('Send was clicked')
+    console.log('Submit was clicked');
+
+    // const formData = {
+    //   name: this.name,
+    //   email: this.email,
+    //   message: this.message
+    // }
+
+    const formData = {}
+
+    this.propertyService.sendEmail(formData).subscribe();
   }
 }

@@ -17,7 +17,8 @@ exports.sendMail = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
 
     // getting users email by query string
-    const toEmail = req.query.toEmail;
+    //const toEmail = req.query.toEmail;
+    const toEmail = 'henlol999@outlook.com';
 
     const mailOptions = {
       from: 'Henry North <henrywebtesting@gmail.com>',

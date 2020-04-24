@@ -26,4 +26,12 @@ export class PropertyService {
 
     return this.http.get<Property[]>(url, httpOptions);
   }
+
+  // Send email from user on contact us page
+  sendEmail(formData: any) {
+    const url = 'https://us-central1-estate-agency-62c1a.cloudfunctions.net/sendMail';
+
+    console.log('Working here');
+    return this.http.post(url, formData);
+  }
 }
