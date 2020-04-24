@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -7,18 +7,16 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  textFormControl = new FormControl('', [ Validators.required ]);
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  name = new FormControl('', Validators.required);
+  email = new FormControl('', [ Validators.required, Validators.email ]);
+  message = new FormControl('', Validators.required);
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClickSend() {
+  onSubmit() {
     console.log('Send was clicked')
   }
 }

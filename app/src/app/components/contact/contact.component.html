@@ -1,34 +1,40 @@
 <div class="shell-wide shell-md-full page-wrapper">
   <div class="form-container">
-    <form>
-      <mat-form-field class="form-field name-field">
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field name-field" appearance="outline">
         <mat-label>Name</mat-label>
-        <input matInput [formControl]="textFormControl">
-        <mat-error *ngIf="textFormControl.hasError('required')">
+
+        <input matInput name="name" [formControl]="name">
+
+        <mat-error *ngIf="name.errors.required">
           Name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="form-field email-field">
+      <mat-form-field class="form-field email-field" appearance="outline">
         <mat-label>Email</mat-label>
-        <input matInput [formControl]="emailFormControl" placeholder="Ex. info@example.com">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+
+        <input matInput placeholder="Ex. info@example.com" name="email" [formControl]="email">
+
+        <mat-error *ngIf="email.errors.email && !email.errors.required">
           Please enter a valid email address
         </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
+        <mat-error *ngIf="email.errors.required">
           Email is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="form-field enquiry-field">
+      <mat-form-field class="form-field enquiry-field" appearance="outline">
         <mat-label>Enquiry/Message</mat-label>
-        <textarea matInput [formControl]="textFormControl" rows="6"></textarea>
-        <mat-error *ngIf="textFormControl.hasError('required')">
-          An enquiry/message  is <strong>required</strong>
+
+        <textarea matInput rows="6" name="message" [formControl]="message"></textarea>
+
+        <mat-error *ngIf="message.errors.required">
+          An enquiry/message is <strong>required</strong>
         </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button class="filter-item" (click)="onClickSend()">Send</button>
+      <button mat-raised-button class="filter-item" (click)="onSubmit()">Send</button>
     </form>
   </div>
 
