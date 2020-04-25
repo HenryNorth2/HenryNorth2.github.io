@@ -20,14 +20,14 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     console.log('Submit was clicked');
 
-    // const formData = {
-    //   name: this.name,
-    //   email: this.email,
-    //   message: this.message
-    // }
+    const formData = {
+      'name': this.name.value,
+      'email': this.email.value,
+      'message': this.message.value
+    }
 
-    const formData = {}
+    console.log(formData);
 
-    this.propertyService.sendEmail(formData).subscribe();
+    this.propertyService.sendEmail(formData);
   }
 }

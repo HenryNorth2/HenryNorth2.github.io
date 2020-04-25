@@ -13,26 +13,27 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-exports.sendMail = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
+exports.sendMail = functions.https.onRequest((request, response) => {
+  cors(request, response, () => {
+    // getting data from request body
+    let data = request.body;
 
-    // getting users email by query string
-    //const toEmail = req.query.toEmail;
     const toEmail = 'henlol999@outlook.com';
 
     const mailOptions = {
       from: 'Henry North <henrywebtesting@gmail.com>',
       to: toEmail,
-      subject: 'Test Subject',
+      subject: `Enquiry from ${data.name}`,
       html: `<p style="font-size: 16px;">Test Body</p>`
     };
 
     // returning result
     return transporter.sendMail(mailOptions, (erro, info) => {
-      if(erro){
-        return res.send(erro.toString());
+      if(erro) {
+        console.log(info);
+        return response.send(erro.toString());
       }
-      return res.send('Sent');
+      return response.send('Sent');
     });
   });
 });

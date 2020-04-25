@@ -5,9 +5,9 @@ import { Property } from '../models/Property';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/json",
-    "x-api-key": "3B990EFF-921D-49B0-86BA-C497F82AF05F"
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
+    'x-api-key': '3B990EFF-921D-49B0-86BA-C497F82AF05F'
   })
 };
 
@@ -32,6 +32,14 @@ export class PropertyService {
     const url = 'https://us-central1-estate-agency-62c1a.cloudfunctions.net/sendMail';
 
     console.log('Working here');
-    return this.http.post(url, formData);
+    return this.http.post(url, formData, httpOptions).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log("Error occured:");
+        console.log(err);
+      }
+    );
   }
 }
