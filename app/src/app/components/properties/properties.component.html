@@ -13,5 +13,7 @@
     </app-property-item>
   </div>
 
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  <div class="pagination-container">
+    <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
+  </div>
 </div>

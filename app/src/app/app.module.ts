@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -91,6 +92,7 @@ const routes: Routes = [
     MatInputModule,
     MatDialogModule,
     MatDividerModule,
+    MatSnackBarModule,
     NgxPaginationModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true })
@@ -101,7 +103,8 @@ const routes: Routes = [
   ],
   providers: [
     PropertyService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}}
   ],
   bootstrap: [AppComponent]
 })

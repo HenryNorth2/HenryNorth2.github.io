@@ -31,15 +31,6 @@ export class PropertyService {
   sendEmail(formData: any) {
     const url = 'https://us-central1-estate-agency-62c1a.cloudfunctions.net/sendMail';
 
-    console.log('Working here');
-    return this.http.post(url, formData, httpOptions).subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log("Error occured:");
-        console.log(err);
-      }
-    );
+    return this.http.post(url, formData, httpOptions);
   }
 }

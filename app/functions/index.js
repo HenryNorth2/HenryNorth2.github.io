@@ -24,16 +24,18 @@ exports.sendMail = functions.https.onRequest((request, response) => {
       from: 'Henry North <henrywebtesting@gmail.com>',
       to: toEmail,
       subject: `Enquiry from ${data.name}`,
-      html: `<p style="font-size: 16px;">Test Body</p>`
+      html: `<h2>Name: ${data.name}</h2>
+        <h2>Email: ${data.email}</h2>
+        <h2>Enquiry/Message:</h2>
+        <p>${data.message}</p>`
     };
 
     // returning result
     return transporter.sendMail(mailOptions, (erro, info) => {
       if(erro) {
-        console.log(info);
         return response.send(erro.toString());
       }
-      return response.send('Sent');
+      return response.send('"Sent"');
     });
   });
 });

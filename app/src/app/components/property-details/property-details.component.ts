@@ -53,7 +53,6 @@ export class PropertyDetailsComponent implements OnInit {
 
   getPropertyTypeString = (propertyType: number) => {
     const propertyTypeObject = PROPERTY_TYPES.find(element => element.value === propertyType);
-    console.log(propertyType);
 
     if (propertyTypeObject) {
       return propertyTypeObject.name;
@@ -83,5 +82,4 @@ export class PropertyDetailsComponent implements OnInit {
       width: '500px',
     });
   }
-
 }
