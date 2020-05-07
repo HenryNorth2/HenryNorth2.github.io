@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,9 +21,6 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
-import { TodosComponent } from './components/todos/todos.component';
-import { TodoItemComponent } from './components/todo-item/todo-item.component';
-import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { PropertiesComponent } from './components/properties/properties.component';
@@ -41,6 +38,7 @@ import { FiltersComponent } from './components/properties/filters/filters.compon
 import { NewOnMarketComponent } from './components/home/new-on-market/new-on-market.component';
 
 import { PropertyService } from './services/property.service';
+import { AuthHeaderInterceptor } from './http-interceptors/auth-header.interceptor';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,10 +52,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent,
-    TodoItemComponent,
     HeaderComponent,
-    AddTodoComponent,
     AboutComponent,
     FooterComponent,
     ContactComponent,
@@ -103,6 +98,7 @@ const routes: Routes = [
   ],
   providers: [
     PropertyService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}}
   ],

@@ -22,9 +22,9 @@ export class PropertyDetailsComponent implements OnInit {
   statusString: string;
 
   constructor(
-    private route:ActivatedRoute,
-    private propertyService:PropertyService,
-    public dialog:MatDialog
+    private route: ActivatedRoute,
+    private propertyService: PropertyService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {

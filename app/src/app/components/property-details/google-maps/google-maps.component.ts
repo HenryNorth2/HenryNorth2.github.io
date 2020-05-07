@@ -7,9 +7,9 @@ import { Component, AfterViewInit, ViewChild, ElementRef, Input } from '@angular
   styleUrls: ['./google-maps.component.css']
 })
 export class GoogleMapsComponent implements AfterViewInit {
+  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   @Input() latitude: number;
   @Input() longitude: number;
-  @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   map: google.maps.Map;
   lat: number;
   lng: number;
