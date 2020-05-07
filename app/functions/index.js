@@ -16,13 +16,11 @@ let transporter = nodemailer.createTransport({
 exports.sendMail = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
     // getting data from request body
-    let data = request.body;
-
-    const toEmail = 'henlol999@outlook.com';
+    const data = request.body;
 
     const mailOptions = {
-      from: 'Henry North <henrywebtesting@gmail.com>',
-      to: toEmail,
+      from: 'Website Enquiry <henrywebtesting@gmail.com>',
+      to: 'henrywebtesting@gmail.com',
       subject: `Enquiry from ${data.name}`,
       html: `<h2>Name: ${data.name}</h2>
         <h2>Email: ${data.email}</h2>

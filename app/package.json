@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,6 +25,7 @@
     "@glidejs/glide": "^3.4.1",
     "@types/googlemaps": "^3.39.3",
     "cors": "^2.8.5",
+    "firebase": "^7.13.2",
     "ngx-pagination": "^5.0.0",
     "ngx-ui-loader": "^9.1.1",
     "nodemailer": "^6.4.6",

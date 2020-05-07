@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AngularFireModule } from '@angular/fire';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
@@ -39,6 +40,8 @@ import { NewOnMarketComponent } from './components/home/new-on-market/new-on-mar
 
 import { PropertyService } from './services/property.service';
 import { AuthHeaderInterceptor } from './http-interceptors/auth-header.interceptor';
+
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -90,7 +93,8 @@ const routes: Routes = [
     MatSnackBarModule,
     NgxPaginationModule,
     NgxUiLoaderModule,
-    NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true })
+    NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true }),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   entryComponents: [
     BookViewingModalComponent,

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from '../models/Property';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,9 @@ export class PropertyService {
 
   // Get Properties List
   getProperties(): Observable<Property[]> {
-    return this.http.get<Property[]>('/api/v1/website/team-listings');
+    const url = `${environment.apiUrl}/api/v1/website/team-listings`;
+
+    return this.http.get<Property[]>(url);
   }
 
   // Send email from user on contact us page
