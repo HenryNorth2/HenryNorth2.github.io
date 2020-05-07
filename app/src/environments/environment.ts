@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: '',
   firebase: {
     apiKey: 'AIzaSyCpy9VRgcajQdxioQC-V8OOeQcw1ZKwM0w',
     authDomain: 'estate-agency-62c1a.web.app',
