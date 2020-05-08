@@ -17,8 +17,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFireModule } from '@angular/fire';
 
 import { AppComponent } from './app.component';
@@ -91,7 +92,8 @@ const routes: Routes = [
     MatDialogModule,
     MatDividerModule,
     MatSnackBarModule,
-    NgxPaginationModule,
+    MatTabsModule,
+    NgbModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true }),
     AngularFireModule.initializeApp(environment.firebase)

@@ -1,15 +1,21 @@
-<div *ngIf="property" class="shell-wide shell-md-full">
-  <div class="titles-container">
+<div class="shell-wide shell-md-full">
+  <div *ngIf="property" class="titles-container">
     <h1>{{ bedroomsString }}, {{ propertyType }}</h1>
     <h3>{{ address }}</h3>
     <h2>{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</h2>
   </div>
 
   <div class="carousel-container">
-    <div>carousel</div>
+    <ngb-carousel *ngIf="property">
+      <ng-template ngbSlide *ngFor="let propertyImage of propertyImages">
+        <div class="picsum-img-wrapper">
+          <img src="{{ propertyImage.url }}" height="auto" width="100%">
+        </div>
+      </ng-template>
+    </ngb-carousel>
   </div>
 
-  <div class="summary-map-wrapper">
+  <div *ngIf="property" class="summary-map-wrapper">
     <div class="summary-container">
       <mat-card>
         <mat-card-content>
@@ -58,6 +64,20 @@
       </mat-card>
     </div>
   </div>
+
+  <mat-tab-group *ngIf="property" class="main-details-container">
+    <mat-tab label="Description">
+      <div>Description</div>
+    </mat-tab>
+
+    <mat-tab label="Floorplan">
+      <div>Floorplan</div>
+    </mat-tab>
+
+    <mat-tab label="Additional Documentation">
+      <div>Additional Documentation</div>
+    </mat-tab>
+  </mat-tab-group>
 
   <button mat-raised-button color="primary" (click)="openViewingDialog()">Book a Viewing</button>
   <button mat-raised-button color="primary" (click)="openEnquiryDialog()">Make an Enquiry</button>

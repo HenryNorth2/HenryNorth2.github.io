@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import Glide from '@glidejs/glide';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../models/Property';
 import { BookViewingModalComponent } from './book-viewing-modal/book-viewing-modal.component';
@@ -16,10 +17,14 @@ import { PROPERTY_TYPES } from 'src/app/entities/propertyTypes';
 export class PropertyDetailsComponent implements OnInit {
   properties: Property[];
   property: Property;
+  propertyImages: any[];
   bedroomsString: string;
   propertyType: string;
   address: string;
   statusString: string;
+  carouselConfig = {
+    type: 'carousel'
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -36,11 +41,20 @@ export class PropertyDetailsComponent implements OnInit {
         this.property = this.properties.find(property => property.propertyId === propertyId);
       });
 
+      this.propertyImages = this.getPropertyImages(this.property.details.media);
       this.bedroomsString = this.getBedroomsString(this.property.details.bedrooms);
       this.propertyType = this.getPropertyTypeString(this.property.details.propertyType);
       this.address = this.property.details.displayAddress.replace(/,/g, ", ");
       this.statusString = this.getStatusString(this.property.details.status);
     });
+  }
+
+  getPropertyImages = (media: any[]) => {
+    const propertyImages = media.filter((item) => {
+      return item.mediaType === 1;
+    });
+
+    return propertyImages;
   }
 
   getBedroomsString = (numberOfBedrooms: number) => {

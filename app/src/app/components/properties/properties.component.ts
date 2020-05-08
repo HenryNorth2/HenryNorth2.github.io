@@ -10,7 +10,7 @@ import { PropertyService } from '../../services/property.service';
 })
 export class PropertiesComponent implements OnInit {
   properties: Property[];
-  propertiesPerPage: number = 3;
+  pageSize: number = 3;
   page: number = 1;
 
   constructor(private propertyService: PropertyService) { }

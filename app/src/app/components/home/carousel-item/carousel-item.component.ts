@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./carousel-item.component.css']
 })
 export class CarouselItemComponent implements OnInit {
-  @Input() title:string;
-  @Input() imgSrc:string;
-  @Input() routeTo:string;
+  @Input() title: string;
+  @Input() imgSrc: string;
+  @Input() routeTo: string;
 
   constructor() { }
 

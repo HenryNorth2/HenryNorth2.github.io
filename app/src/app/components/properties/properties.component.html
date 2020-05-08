@@ -7,13 +7,20 @@
   <div class="properties-container" *ngIf="properties">
     <app-property-item
       class="property-card"
-      *ngFor="let property of properties | paginate: { itemsPerPage: propertiesPerPage, currentPage: page }"
+      *ngFor="let property of properties | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"
       [property]="property"
     >
     </app-property-item>
   </div>
 
-  <div class="pagination-container">
-    <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
+  <div class="pagination-container" *ngIf="properties">
+    <ngb-pagination
+      class="d-flex justify-content-center pagination"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [collectionSize]="properties.length"
+      [boundaryLinks]="true"
+    >
+    </ngb-pagination>
   </div>
 </div>

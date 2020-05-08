@@ -1,9 +1,11 @@
 .titles-container {
   text-align: center;
+  margin-bottom: 18px;
 }
 
 .summary-map-wrapper {
   display: flex;
+  margin: 12px 0;
 }
 
 .summary-container {
@@ -50,6 +52,14 @@
 
 .map-card {
   height: 100%;
+}
+
+.main-details-container {
+  margin: 12px 0 18px;
+}
+
+.main-details-container /deep/ .mat-tab-header {
+  margin-bottom: 12px
 }
 
 button {
