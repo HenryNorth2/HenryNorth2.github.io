@@ -1,5 +1,7 @@
 <mat-card>
   <img mat-card-image src="{{thumbnailSrc}}" alt="Property image" [routerLink]="['/properties', property.propertyId]">
+  <div class="property-status">{{ statusString }}</div>
+
   <mat-card-content>
     <mat-list>
       <mat-list-item class="address-item">{{ address }}</mat-list-item>
@@ -9,7 +11,17 @@
       <mat-divider></mat-divider>
 
       <mat-list-item class="extra-detail-item">
-        <button mat-raised-button [routerLink]="['/properties', property.propertyId]">Book a Viewing</button>
+        <div class="icon-container">
+          <div>{{ property.details.bedrooms }} x </div>
+          <mat-icon class="bed-icon">king_bed</mat-icon>
+        </div>
+
+        <div class="icon-container">
+          <div>{{ property.details.bathrooms }} x </div>
+          <mat-icon class="icon">bathtub</mat-icon>
+        </div>
+
+        <button mat-raised-button [routerLink]="['/properties', property.propertyId]">View</button>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

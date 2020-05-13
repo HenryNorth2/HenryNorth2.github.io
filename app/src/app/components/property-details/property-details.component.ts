@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import Glide from '@glidejs/glide';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../models/Property';
 import { BookViewingModalComponent } from './book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './make-enquiry-modal/make-enquiry-modal.component';
-import { PROPERTY_TYPES } from 'src/app/entities/propertyTypes';
+import { PROPERTY_TYPES, STATUS_NUMBERS } from 'src/app/entities/entities';
 
 
 @Component({
@@ -71,15 +70,15 @@ export class PropertyDetailsComponent implements OnInit {
     if (propertyTypeObject) {
       return propertyTypeObject.name;
     } else {
-      return 'Property'
+      return 'Property';
     }
   }
 
   getStatusString = (statusNumber: number) => {
-    if (statusNumber === 1) {
-      return 'For Sale';
-    } if (statusNumber === 2) {
-      return 'Under Offer';
+    const propertyTypeObject = STATUS_NUMBERS.find(element => element.value === statusNumber);
+
+    if (propertyTypeObject) {
+      return propertyTypeObject.name;
     } else {
       return 'Unknown';
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PROPERTY_TYPES } from 'src/app/entities/propertyTypes';
+import { PROPERTY_TYPES } from 'src/app/entities/entities';
 
 interface SelectFieldOptions {
   name: string;

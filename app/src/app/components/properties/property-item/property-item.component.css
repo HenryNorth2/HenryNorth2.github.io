@@ -12,6 +12,17 @@ mat-card img:hover {
   cursor: pointer;
 }
 
+.property-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: #d24726;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
 mat-card-content {
   margin-top: 0px;
 }
@@ -34,6 +45,22 @@ mat-list {
 
 .extra-detail-item {
   height: 56px;
+}
+
+.icon-container {
+  margin-right: 14px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bed-icon {
+  color: #d24726;
+  font-size: 28px;
+}
+
+.icon {
+  font-size: 24px;
+  color: #d24726;
 }
 
 button {
