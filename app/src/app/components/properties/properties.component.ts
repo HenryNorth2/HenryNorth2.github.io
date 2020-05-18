@@ -21,4 +21,29 @@ export class PropertiesComponent implements OnInit {
     });
   }
 
+  filterProperties(filters: any) {
+    this.propertyService.getProperties().subscribe(properties => {
+      console.log(filters.propertyTypeValue);
+
+      let filteredProperties: any;
+
+      if (filters.propertyTypeValue === null) {
+        filteredProperties = properties.filter((property) => {
+          if (property.details.price > filters.maxPriceValue || property.details.bedrooms < filters.minBedroomsValue) {
+            return false;
+          };
+          return true;
+        });
+      } else {
+        filteredProperties = properties.filter((property) => {
+          if (filters.propertyTypeValue === property.details.propertyType) {
+            return true;
+          };
+          return false;
+        });
+      }
+
+      this.properties = filteredProperties;
+    });
+  }
 }

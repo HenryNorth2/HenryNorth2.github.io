@@ -2,7 +2,7 @@
   <h1 class="title">Properties For Sale</h1>
   <div class="divider centralise"></div>
 
-  <app-filters></app-filters>
+  <app-filters (filterProperties)="filterProperties($event)"></app-filters>
 
   <div class="properties-container" *ngIf="properties">
     <app-property-item
