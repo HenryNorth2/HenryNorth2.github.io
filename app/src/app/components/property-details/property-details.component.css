@@ -1,9 +1,11 @@
 .titles-container {
   text-align: center;
+  margin-bottom: 18px;
 }
 
 .summary-map-wrapper {
   display: flex;
+  margin: 12px 0;
 }
 
 .summary-container {
@@ -27,9 +29,23 @@
   height: 42px;
 }
 
-.item-value {
+.item-title {
+  font-weight: bold;
+}
+
+.item-data {
   margin-left: auto;
   text-align: end;
+}
+
+.short-description-item {
+  height: 100% !important;
+}
+
+.short-description-item-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
 }
 
 .map-container {
@@ -48,8 +64,16 @@
   }
 }
 
-.map-card {
-  height: 100%;
+.main-details-container {
+  margin: 12px 0 18px;
+}
+
+.main-details-container /deep/ .mat-tab-header {
+  margin-bottom: 12px
+}
+
+.features-list {
+  list-style-position: inside;
 }
 
 button {

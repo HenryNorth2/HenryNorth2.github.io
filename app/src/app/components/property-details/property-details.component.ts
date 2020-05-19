@@ -5,7 +5,7 @@ import { PropertyService } from '../../services/property.service';
 import { Property } from '../../models/Property';
 import { BookViewingModalComponent } from './book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './make-enquiry-modal/make-enquiry-modal.component';
-import { PROPERTY_TYPES } from 'src/app/entities/propertyTypes';
+import { PROPERTY_TYPES, STATUS_NUMBERS } from 'src/app/entities/entities';
 
 
 @Component({
@@ -14,33 +14,44 @@ import { PROPERTY_TYPES } from 'src/app/entities/propertyTypes';
   styleUrls: ['./property-details.component.css']
 })
 export class PropertyDetailsComponent implements OnInit {
-  properties: Property[];
   property: Property;
+  propertyImages: any[];
   bedroomsString: string;
   propertyType: string;
   address: string;
   statusString: string;
 
+  carouselConfig = {
+    type: 'carousel'
+  }
+
   constructor(
-    private route:ActivatedRoute,
-    private propertyService:PropertyService,
-    public dialog:MatDialog
+    private route: ActivatedRoute,
+    private propertyService: PropertyService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.propertyService.getProperties().subscribe(properties => {
-      this.properties = properties;
-
       this.route.paramMap.subscribe((params: ParamMap) => {
         let propertyId = +params.get('propertyId');
-        this.property = this.properties.find(property => property.propertyId === propertyId);
+        this.property = properties.find(property => property.propertyId === propertyId);
       });
 
+      this.propertyImages = this.getPropertyImages(this.property.details.media);
       this.bedroomsString = this.getBedroomsString(this.property.details.bedrooms);
       this.propertyType = this.getPropertyTypeString(this.property.details.propertyType);
       this.address = this.property.details.displayAddress.replace(/,/g, ", ");
       this.statusString = this.getStatusString(this.property.details.status);
     });
+  }
+
+  getPropertyImages = (media: any[]) => {
+    const propertyImages = media.filter((item) => {
+      return item.mediaType === 1;
+    });
+
+    return propertyImages;
   }
 
   getBedroomsString = (numberOfBedrooms: number) => {
@@ -53,20 +64,19 @@ export class PropertyDetailsComponent implements OnInit {
 
   getPropertyTypeString = (propertyType: number) => {
     const propertyTypeObject = PROPERTY_TYPES.find(element => element.value === propertyType);
-    console.log(propertyType);
 
     if (propertyTypeObject) {
       return propertyTypeObject.name;
     } else {
-      return 'Property'
+      return 'Property';
     }
   }
 
   getStatusString = (statusNumber: number) => {
-    if (statusNumber === 1) {
-      return 'For Sale';
-    } if (statusNumber === 2) {
-      return 'Under Offer';
+    const propertyTypeObject = STATUS_NUMBERS.find(element => element.value === statusNumber);
+
+    if (propertyTypeObject) {
+      return propertyTypeObject.name;
     } else {
       return 'Unknown';
     }
@@ -83,5 +93,4 @@ export class PropertyDetailsComponent implements OnInit {
       width: '500px',
     });
   }
-
 }

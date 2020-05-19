@@ -6,3 +6,9 @@ export const PROPERTY_TYPES = [
   { name: 'Bungalow', value: 5 },
   { name: 'Cottage', value: 6 },
 ];
+
+export const STATUS_NUMBERS = [
+  { name: 'Under Offer', value: 1 },
+  { name: 'For Sale', value: 2 },
+  { name: 'Sold STC', value: 3 },
+];

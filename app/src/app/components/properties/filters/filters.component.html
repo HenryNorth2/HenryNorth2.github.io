@@ -1,32 +1,32 @@
 <div class="filters-box">
   <mat-form-field class="filter-item">
     <mat-label>Maximum Price</mat-label>
-    <mat-select>
+    <mat-select [(value)]="maxPriceValue">
       <mat-option *ngFor="let maxPrice of maxPrices" [value]="maxPrice.value">
-        {{maxPrice.name}}
+        {{ maxPrice.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field class="filter-item">
     <mat-label>Property Type</mat-label>
-    <mat-select>
+    <mat-select [(value)]="propertyTypeValue">
       <mat-option *ngFor="let propertyType of propertyTypes" [value]="propertyType.value">
-        {{propertyType.name}}
+        {{ propertyType.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field class="filter-item">
     <mat-label>Minimum Bedrooms</mat-label>
-    <mat-select>
+    <mat-select [(value)]="minBedroomsValue">
       <mat-option *ngFor="let minBedroomsOption of minBedroomsOptions" [value]="minBedroomsOption.value">
-        {{minBedroomsOption.name}}
+        {{ minBedroomsOption.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <button mat-raised-button class="filter-item" (click)="onClickFilter()">
-    <mat-icon>search</mat-icon>Search
+    <mat-icon>search</mat-icon>Filter
   </button>
 </div>

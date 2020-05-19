@@ -1,51 +1,70 @@
-<div *ngIf="property" class="shell-wide shell-md-full">
-  <div class="titles-container">
+<div class="shell-wide shell-md-full">
+  <div *ngIf="property" class="titles-container">
     <h1>{{ bedroomsString }}, {{ propertyType }}</h1>
     <h3>{{ address }}</h3>
     <h2>{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</h2>
   </div>
 
   <div class="carousel-container">
-    <div>carousel</div>
+    <ngb-carousel *ngIf="property">
+      <ng-template ngbSlide *ngFor="let propertyImage of propertyImages">
+        <div class="picsum-img-wrapper">
+          <img src="{{ propertyImage.url }}" height="auto" width="100%">
+        </div>
+      </ng-template>
+    </ngb-carousel>
   </div>
 
-  <div class="summary-map-wrapper">
+  <div *ngIf="property" class="summary-map-wrapper">
     <div class="summary-container">
       <mat-card>
         <mat-card-content>
           <mat-list>
             <mat-list-item>
-              Status: <div class="item-value">{{ statusString }}</div>
+              <div class="item-title">Status:</div>
+              <div class="item-data">{{ statusString }}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
 
             <mat-list-item>
-              Type: <div class="item-value">{{ propertyType }}</div>
+              <div class="item-title">Type:</div>
+              <div class="item-data">{{ propertyType }}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
 
             <mat-list-item>
-              Bedrooms: <div class="item-value">{{ property.details.bedrooms }}</div>
+              <div class="item-title">Bedrooms:</div>
+              <div class="item-data">{{ property.details.bedrooms }}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
 
             <mat-list-item>
-              Bathrooms: <div class="item-value">{{ property.details.bathrooms }}</div>
+              <div class="item-title">Bathrooms:</div>
+              <div class="item-data">{{ property.details.bathrooms }}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
 
             <mat-list-item>
-              Receptions: <div class="item-value">{{ property.details.receptionRooms }}</div>
+              <div class="item-title">Receptions:</div>
+              <div class="item-data">{{ property.details.receptionRooms }}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
 
             <mat-list-item>
-              Address: <div class="item-value">{{ address }}</div>
+              <div class="item-title">Address:</div>
+              <div class="item-data">{{ address }}</div>
             </mat-list-item>
             <mat-divider></mat-divider>
 
             <mat-list-item>
-              Price: <div class="item-value">{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</div>
+              <div class="item-title">Price:</div>
+              <div class="item-data">{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <div matSubheader class="short-description-item-title">Short Description: </div>
+            <mat-list-item class="short-description-item">
+              <div class="short-description-item-data" [innerHTML]="property.details.shortDescription"></div>
             </mat-list-item>
           </mat-list>
         </mat-card-content>
@@ -53,11 +72,32 @@
     </div>
 
     <div class="map-container">
-      <mat-card class="map-card">
+      <mat-card>
         <app-google-maps latitude="{{ property.details.latitude }}" longitude="{{ property.details.longitude }}"></app-google-maps>
       </mat-card>
     </div>
   </div>
+
+  <mat-tab-group *ngIf="property" class="main-details-container">
+    <mat-tab label="Description">
+      <div [innerHTML]="property.details.fullDescription"></div>
+      <div *ngIf="property.details.features.length">
+        <h2>Features:</h2>
+
+        <ul class="features-list">
+          <li *ngFor="let feature of property.details.features">{{ feature }}</li>
+        </ul>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Floorplan">
+      <div>Floorplan</div>
+    </mat-tab>
+
+    <mat-tab label="Additional Documentation">
+      <div>Additional Documentation</div>
+    </mat-tab>
+  </mat-tab-group>
 
   <button mat-raised-button color="primary" (click)="openViewingDialog()">Book a Viewing</button>
   <button mat-raised-button color="primary" (click)="openEnquiryDialog()">Make an Enquiry</button>

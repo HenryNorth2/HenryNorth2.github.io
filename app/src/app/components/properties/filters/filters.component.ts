@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PROPERTY_TYPES } from 'src/app/entities/propertyTypes';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { PROPERTY_TYPES } from 'src/app/entities/entities';
 
 interface SelectFieldOptions {
   name: string;
@@ -12,6 +12,12 @@ interface SelectFieldOptions {
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent implements OnInit {
+  @Output("filterProperties") filterProperties: EventEmitter<any> = new EventEmitter();
+
+  maxPriceValue = null;
+  propertyTypeValue = null;
+  minBedroomsValue = null;
+
   maxPrices: SelectFieldOptions[] = [
     { name: 'No perference', value: null },
     { name: '£100,000', value: 100000 },
@@ -21,7 +27,7 @@ export class FiltersComponent implements OnInit {
     { name: '£300,000', value: 300000 },
     { name: '£500,000', value: 500000 },
     { name: '£750,000', value: 750000 },
-    { name: '£1,000,000', value: 100000 }
+    { name: '£1,000,000', value: 1000000 }
   ];
 
   propertyTypes: SelectFieldOptions[] = [
@@ -44,7 +50,12 @@ export class FiltersComponent implements OnInit {
   }
 
   onClickFilter() {
-    console.log('search was clicked')
-  }
+    const filters = {
+      maxPriceValue: this.maxPriceValue,
+      propertyTypeValue: this.propertyTypeValue,
+      minBedroomsValue: this.minBedroomsValue,
+    };
 
+    this.filterProperties.emit(filters);
+  }
 }

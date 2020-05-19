@@ -10,7 +10,7 @@ import { PropertyService } from '../../services/property.service';
 })
 export class PropertiesComponent implements OnInit {
   properties: Property[];
-  propertiesPerPage: number = 3;
+  pageSize: number = 3;
   page: number = 1;
 
   constructor(private propertyService: PropertyService) { }
@@ -21,4 +21,29 @@ export class PropertiesComponent implements OnInit {
     });
   }
 
+  filterProperties(filters: any) {
+    this.propertyService.getProperties().subscribe(properties => {
+      console.log(filters.propertyTypeValue);
+
+      let filteredProperties: any;
+
+      if (filters.propertyTypeValue === null) {
+        filteredProperties = properties.filter((property) => {
+          if (property.details.price > filters.maxPriceValue || property.details.bedrooms < filters.minBedroomsValue) {
+            return false;
+          };
+          return true;
+        });
+      } else {
+        filteredProperties = properties.filter((property) => {
+          if (filters.propertyTypeValue === property.details.propertyType) {
+            return true;
+          };
+          return false;
+        });
+      }
+
+      this.properties = filteredProperties;
+    });
+  }
 }
