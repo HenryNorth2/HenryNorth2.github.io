@@ -14,13 +14,13 @@ import { PROPERTY_TYPES, STATUS_NUMBERS } from 'src/app/entities/entities';
   styleUrls: ['./property-details.component.css']
 })
 export class PropertyDetailsComponent implements OnInit {
-  properties: Property[];
   property: Property;
   propertyImages: any[];
   bedroomsString: string;
   propertyType: string;
   address: string;
   statusString: string;
+
   carouselConfig = {
     type: 'carousel'
   }
@@ -33,11 +33,9 @@ export class PropertyDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.propertyService.getProperties().subscribe(properties => {
-      this.properties = properties;
-
       this.route.paramMap.subscribe((params: ParamMap) => {
         let propertyId = +params.get('propertyId');
-        this.property = this.properties.find(property => property.propertyId === propertyId);
+        this.property = properties.find(property => property.propertyId === propertyId);
       });
 
       this.propertyImages = this.getPropertyImages(this.property.details.media);
