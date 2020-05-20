@@ -1,7 +1,77 @@
 <div>
   <h1 mat-dialog-title>Make an Enquiry</h1>
-  <div mat-dialog-content>CONTENT</div>
-  <div mat-dialog-actions>
-    <button mat-raised-button (click)="onCloseClick()">Close</button>
-  </div>
+
+  <form>
+    <div mat-dialog-content>
+      <mat-form-field class="field">
+        <mat-label>First Name *</mat-label>
+
+        <input matInput [formControl]="firstName">
+
+        <mat-error *ngIf="firstName.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="field">
+        <mat-label>Last Name *</mat-label>
+
+        <input matInput [formControl]="lastName">
+
+        <mat-error *ngIf="lastName.hasError('required')">
+          Last Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="field">
+        <mat-label>Email *</mat-label>
+
+        <input matInput type="email" [formControl]="email">
+
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+
+        <mat-error *ngIf="email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="field">
+        <mat-label>Phone Number</mat-label>
+
+        <input matInput type="number" [formControl]="phoneNumber">
+      </mat-form-field>
+
+      <mat-form-field class="enquiry-field" appearance="outline">
+        <mat-label>Enquiry *</mat-label>
+
+        <textarea rows="4" matInput [formControl]="enquiry"></textarea>
+
+        <mat-error *ngIf="enquiry.hasError('required')">
+          Enquiry is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-checkbox [formControl]="sendBrochure">I would like to recieve a brochure</mat-checkbox>
+    </div>
+
+    <div mat-dialog-actions class="dialog-actions">
+      <button mat-raised-button type="button" (click)="onCloseClick()">Close</button>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="onSubmit()"
+        disabled="{{
+          firstName.hasError('required') ||
+          lastName.hasError('required') ||
+          email.hasError('email') ||
+          email.hasError('required') ||
+          enquiry.hasError('required')
+        }}"
+      >Submit
+      </button>
+    </div>
+  </form>
 </div>

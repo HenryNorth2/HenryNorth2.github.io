@@ -31,7 +31,7 @@ export class ContactComponent implements OnInit {
     this.propertyService.sendEmail(formData).subscribe(
       res => {
         if (res === 'Sent') {
-          this.snackBar.open('Message successfully sent', 'Close');
+          this.snackBar.open('Enquiry/Message was successfully sent', 'Close');
         }
       },
       err => {
