@@ -21,10 +21,6 @@ export class PropertyDetailsComponent implements OnInit {
   address: string;
   statusString: string;
 
-  carouselConfig = {
-    type: 'carousel'
-  }
-
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
@@ -84,13 +80,21 @@ export class PropertyDetailsComponent implements OnInit {
 
   openViewingDialog(): void {
     this.dialog.open(BookViewingModalComponent, {
-      width: '500px',
+      width: '750px',
+      maxWidth: '95%',
+      data: {
+        listingId: this.property.listingId
+      }
     });
   }
 
   openEnquiryDialog(): void {
     this.dialog.open(MakeEnquiryModalComponent, {
-      width: '500px',
+      width: '750px',
+      maxWidth: '95%',
+      data: {
+        listingId: this.property.listingId
+      }
     });
   }
 }
