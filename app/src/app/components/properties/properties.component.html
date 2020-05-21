@@ -4,6 +4,17 @@
 
   <app-filters (filterProperties)="filterProperties($event)"></app-filters>
 
+  <div class="sort-wrapper">
+    <mat-form-field appearance="fill">
+      <mat-label>Sort by:</mat-label>
+      <mat-select [(value)]="sortFilterValue" (selectionChange)="sortProperties()">
+        <mat-option *ngFor="let sortFilter of sortFilters" [value]="sortFilter.value">
+          {{ sortFilter.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
   <div class="properties-container" *ngIf="properties">
     <app-property-item
       class="property-card"

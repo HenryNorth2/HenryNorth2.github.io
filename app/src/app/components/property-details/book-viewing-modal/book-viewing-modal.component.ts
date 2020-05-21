@@ -49,8 +49,6 @@ export class BookViewingModalComponent {
       "comment": this.message.value,
     }
 
-    console.log(viewingFormData);
-
     this.propertyService.sendViewingFormData(viewingFormData).subscribe(
       res => {
         if (res) {
