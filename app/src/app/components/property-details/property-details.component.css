@@ -3,14 +3,19 @@
   margin-bottom: 18px;
 }
 
-.summary-map-wrapper {
+.carousel-container {
+  width: 50%;
+  margin: 10px 10px 10px 0;
+}
+
+.summary-carousel-wrapper {
   display: flex;
   margin: 12px 0;
 }
 
 .summary-container {
   width: 50%;
-  margin: 10px 10px 10px 0;
+  margin: 10px 0 10px 10px;
 }
 
 .summary-container mat-divider {
@@ -49,12 +54,12 @@
 }
 
 .map-container {
-  width: 50%;
-  margin: 10px 0 10px 10px;
+  width: 100%;
+  margin-top: 10px;
 }
 
 @media (max-width: 1100px) {
-  .summary-map-wrapper {
+  .summary-carousel-wrapper {
     display: block;
   }
 

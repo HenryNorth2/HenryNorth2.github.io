@@ -5,17 +5,17 @@
     <h2>{{ property.details.price | currency:"GBP":"symbol":"1.0-2" }}</h2>
   </div>
 
-  <div class="carousel-container">
-    <ngb-carousel *ngIf="property">
-      <ng-template ngbSlide *ngFor="let propertyImage of propertyImages">
-        <div class="picsum-img-wrapper">
-          <img src="{{ propertyImage.url }}" height="auto" width="100%">
-        </div>
-      </ng-template>
-    </ngb-carousel>
-  </div>
+  <div *ngIf="property" class="summary-carousel-wrapper">
+    <div class="carousel-container">
+      <ngb-carousel *ngIf="property">
+        <ng-template ngbSlide *ngFor="let propertyImage of propertyImages">
+          <div class="picsum-img-wrapper">
+            <img src="{{ propertyImage.url }}" height="auto" width="100%">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
 
-  <div *ngIf="property" class="summary-map-wrapper">
     <div class="summary-container">
       <mat-card>
         <mat-card-content>
@@ -62,18 +62,12 @@
             </mat-list-item>
             <mat-divider></mat-divider>
 
-            <div matSubheader class="short-description-item-title">Short Description: </div>
+            <div matSubheader class="short-description-item-title">Brief Description: </div>
             <mat-list-item class="short-description-item">
               <div class="short-description-item-data" [innerHTML]="property.details.shortDescription"></div>
             </mat-list-item>
           </mat-list>
         </mat-card-content>
-      </mat-card>
-    </div>
-
-    <div class="map-container">
-      <mat-card>
-        <app-google-maps latitude="{{ property.details.latitude }}" longitude="{{ property.details.longitude }}"></app-google-maps>
       </mat-card>
     </div>
   </div>
@@ -87,6 +81,14 @@
         <ul class="features-list">
           <li *ngFor="let feature of property.details.features">{{ feature }}</li>
         </ul>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Map">
+      <div class="map-container">
+        <mat-card>
+          <app-google-maps latitude="{{ property.details.latitude }}" longitude="{{ property.details.longitude }}"></app-google-maps>
+        </mat-card>
       </div>
     </mat-tab>
 

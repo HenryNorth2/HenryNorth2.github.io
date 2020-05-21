@@ -14,7 +14,7 @@ interface SelectFieldOptions {
 })
 export class PropertiesComponent implements OnInit {
   properties: Property[];
-  pageSize: number = 10;
+  pageSize: number = 21;
   page: number = 1;
   sortFilterValue = null;
 
