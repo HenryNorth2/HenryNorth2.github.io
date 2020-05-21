@@ -1,6 +1,6 @@
 <mat-card>
   <img mat-card-image src="{{thumbnailSrc}}" alt="Property image" [routerLink]="['/properties', property.propertyId]">
-  <div class="property-status">{{ statusString }}</div>
+  <div class="property-status" [ngStyle]="{'background-color': getStatusColour(statusString)}">{{ statusString }}</div>
 
   <mat-card-content>
     <mat-list>
