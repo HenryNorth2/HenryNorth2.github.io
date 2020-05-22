@@ -10,7 +10,7 @@
       <ngb-carousel *ngIf="property">
         <ng-template ngbSlide *ngFor="let propertyImage of propertyImages">
           <div class="picsum-img-wrapper">
-            <img src="{{ propertyImage.url }}" height="auto" width="100%">
+            <img src="{{ propertyImage.url }}" height="414px" width="auto">
           </div>
         </ng-template>
       </ngb-carousel>
@@ -84,20 +84,27 @@
       </div>
     </mat-tab>
 
-    <mat-tab label="Map">
-      <div class="map-container">
+    <mat-tab label="Map" *ngIf="property.details.latitude && property.details.longitude">
+      <div class="map-wrapper">
         <mat-card>
-          <app-google-maps latitude="{{ property.details.latitude }}" longitude="{{ property.details.longitude }}"></app-google-maps>
+          <agm-map
+            [latitude]="property.details.latitude"
+            [longitude]="property.details.longitude"
+            [mapTypeId]="mapType"
+            [zoom]="16"
+            [mapTypeControl]="mapTypeControl"
+            [mapTypeControlOptions]="mapTypeControlOptions"
+          >
+            <agm-marker
+              [latitude]="property.details.latitude"
+              [longitude]="property.details.longitude"
+              [opacity]="1"
+              [markerDraggable]="false"
+            >
+            </agm-marker>
+          </agm-map>
         </mat-card>
       </div>
-    </mat-tab>
-
-    <mat-tab label="Floorplan">
-      <div>Floorplan</div>
-    </mat-tab>
-
-    <mat-tab label="Additional Documentation">
-      <div>Additional Documentation</div>
     </mat-tab>
   </mat-tab-group>
 

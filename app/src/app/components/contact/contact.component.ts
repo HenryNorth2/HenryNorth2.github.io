@@ -13,6 +13,12 @@ export class ContactComponent implements OnInit {
   email = new FormControl('', [ Validators.required, Validators.email ]);
   message = new FormControl('', [ Validators.required ]);
 
+  latitude = 52.155304;
+  longitude = -1.637634;
+  mapType = 'roadmap';
+  mapTypeControl: true;
+  mapTypeControlOptions: {mapTypeIds: ['roadmap', 'satellite']};
+
   constructor(
     private propertyService: PropertyService,
     private snackBar: MatSnackBar

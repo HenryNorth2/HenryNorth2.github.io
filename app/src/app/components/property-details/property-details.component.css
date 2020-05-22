@@ -53,9 +53,14 @@
   color: #000;
 }
 
-.map-container {
+.map-wrapper {
   width: 100%;
   margin-top: 10px;
+}
+
+agm-map {
+  height: 600px;
+  width: 100%;
 }
 
 @media (max-width: 1100px) {
@@ -63,7 +68,7 @@
     display: block;
   }
 
-  .summary-container, .map-container {
+  .summary-container, .carousel-container {
     width: 100%;
     margin: 10px 0;
   }

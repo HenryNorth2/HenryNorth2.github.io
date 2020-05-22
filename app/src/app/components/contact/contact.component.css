@@ -84,3 +84,13 @@ button {
   margin: 6px 10px;
   font-size: 18px;
 }
+
+.map-wrapper {
+  width: 100%;
+  margin-top: 10px;
+}
+
+agm-map {
+  height: 600px;
+  width: 100%;
+}
