@@ -16,7 +16,7 @@ export class NewOnMarketComponent implements OnInit {
     this.propertyService.getProperties().subscribe(properties => {
       const allProperties = properties;
 
-      const sortedProperties = allProperties.slice().sort((a, b) => Number(b.listingId) - Number(a.listingId))
+      const sortedProperties = allProperties.slice().sort((a, b) => Number(b.listingId) - Number(a.listingId));
       this.newProperties = sortedProperties.slice(0, 3);
     });
   }

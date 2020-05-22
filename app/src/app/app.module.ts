@@ -20,9 +20,12 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { AngularFireModule } from '@angular/fire';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
@@ -37,7 +40,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { BookViewingModalComponent } from './components/property-details/book-viewing-modal/book-viewing-modal.component';
 import { MakeEnquiryModalComponent } from './components/property-details/make-enquiry-modal/make-enquiry-modal.component';
-import { GoogleMapsComponent } from './components/property-details/google-maps/google-maps.component';
 import { FiltersComponent } from './components/properties/filters/filters.component';
 import { NewOnMarketComponent } from './components/home/new-on-market/new-on-market.component';
 
@@ -70,7 +72,6 @@ const routes: Routes = [
     PropertyDetailsComponent,
     BookViewingModalComponent,
     MakeEnquiryModalComponent,
-    GoogleMapsComponent,
     FiltersComponent,
     NewOnMarketComponent
   ],
@@ -97,9 +98,11 @@ const routes: Routes = [
     MatTabsModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatMomentDateModule,
     NgbModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({ minTime: 300, showForeground: true }),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyDlftBSWLPRG0BMzrOQGg_1WLgUNIX4GeY' }),
     AngularFireModule.initializeApp(environment.firebase)
   ],
   entryComponents: [
@@ -110,7 +113,8 @@ const routes: Routes = [
     PropertyService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthHeaderInterceptor, multi: true},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}}
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 5000}},
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
   ],
   bootstrap: [AppComponent]
 })

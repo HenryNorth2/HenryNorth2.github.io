@@ -1,0 +1,13 @@
+.field {
+  padding: 0 4px;
+  width: 50%;
+}
+
+.enquiry-field {
+  padding: 0 4px;
+  width: 100%;
+}
+
+.dialog-actions {
+  margin-bottom: -16px;
+}

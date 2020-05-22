@@ -21,6 +21,10 @@ export class PropertyDetailsComponent implements OnInit {
   address: string;
   statusString: string;
 
+  mapType = 'roadmap';
+  mapTypeControl: true;
+  mapTypeControlOptions: {mapTypeIds: ['roadmap', 'satellite']};
+
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,

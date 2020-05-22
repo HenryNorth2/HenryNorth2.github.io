@@ -3,6 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from '../models/Property';
 
+export interface ViewingFormData {
+  listingId: string;
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  phoneDaytime: string;
+  possibleDate1: string;
+  possibleDate2: string;
+  comment: string;
+}
+
 export interface EnquiryFormData {
   listingId: string;
   firstName: string;
@@ -22,6 +33,11 @@ export class PropertyService {
   // Get Properties List
   getProperties(): Observable<Property[]> {
     return this.http.get<Property[]>('/api/v1/website/team-listings');
+  }
+
+  // Send book viewing form data from property details page
+  sendViewingFormData(formData: ViewingFormData): Observable<ViewingFormData> {
+    return this.http.post<ViewingFormData>('/api/v1/website/book-viewing', formData);
   }
 
   // Send enquiry form data from property details page

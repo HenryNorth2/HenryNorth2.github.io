@@ -25,7 +25,7 @@ export class PropertyItemComponent implements OnInit {
   }
 
   getStatusString = (statusNumber: number) => {
-    const propertyTypeObject = STATUS_NUMBERS.find(element => element.value === statusNumber);
+    const propertyTypeObject = STATUS_NUMBERS.find(el => el.value === statusNumber);
 
     if (propertyTypeObject) {
       return propertyTypeObject.name;
@@ -34,4 +34,16 @@ export class PropertyItemComponent implements OnInit {
     }
   }
 
+  getStatusColour = (statusString: string) => {
+    switch (statusString) {
+      case 'Under Offer':
+        return '#d24726';
+      case 'For Sale':
+        return 'green';
+      case 'Sold STC':
+        return 'red';
+      default:
+        return '#d24726';
+    }
+  }
 }

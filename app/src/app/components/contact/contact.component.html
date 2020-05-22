@@ -88,4 +88,23 @@
       </div>
     </div>
   </div>
+
+  <mat-card>
+    <agm-map
+      [latitude]="latitude"
+      [longitude]="longitude"
+      [mapTypeId]="mapType"
+      [zoom]="16"
+      [mapTypeControl]="mapTypeControl"
+      [mapTypeControlOptions]="mapTypeControlOptions"
+    >
+      <agm-marker
+        [latitude]="latitude"
+        [longitude]="longitude"
+        [opacity]="1"
+        [markerDraggable]="false"
+      >
+      </agm-marker>
+    </agm-map>
+  </mat-card>
 </div>
